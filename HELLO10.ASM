@@ -1,7 +1,7 @@
 ; Simple program that prints 'Hello, World!' ten times each in a new line under DOS written in x86 assembly.
 ; (c) 2025 yetanotherstrawberry
 
-org 0x100 ; Set offset beyond .COM file header.
+org 0x100 ; Set memory offset beyond Program Segment Prefix.
 
 section .text ; Begin code section.
    global _start ; Define entry point for the linker.
@@ -18,7 +18,7 @@ section .text ; Begin code section.
 
    _loop:
       mov ah, 0x9 ; DOS: Print to console - function 0x9.
-      lea dx, hello ; DOS: Set string - set DX to $-terminated string in memory.
+      lea dx, hello ; DOS: Set string - set DX to memory addres of a $-terminated string.
       int 0x21 ; DOS: API call - interrupt 0x21.
       jmp _check ; Jump to _check.
 
