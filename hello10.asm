@@ -24,3 +24,4 @@ section .text ; Begin code section.
 
 section .data ; Begin data section.
    hello db 'Hello, World!',0xd,0xa,'$' ; Store 'Hello, World!\r\n$' as hello.
+
